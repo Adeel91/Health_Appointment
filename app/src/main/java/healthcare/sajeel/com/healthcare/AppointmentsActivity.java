@@ -1,15 +1,12 @@
 package healthcare.sajeel.com.healthcare;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,32 +14,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.GridView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import healthcare.sajeel.com.healthcare.Fragments.AppointmentsFragment;
+import healthcare.sajeel.com.healthcare.adapter.AppointmentsAdapter;
+import healthcare.sajeel.com.healthcare.model.Appointments;
 
-public class DashboardActivity extends AppCompatActivity
+public class AppointmentsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    FrameLayout mainScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_appointments);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        mainScreen = (FrameLayout) findViewById(R.id.fragments);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -52,6 +44,10 @@ public class DashboardActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        GridView gridView = findViewById(R.id.gridView);
+        final AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(this, appointments);
+        gridView.setAdapter(appointmentsAdapter);
     }
 
     @Override
@@ -59,8 +55,6 @@ public class DashboardActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (getSupportFragmentManager().findFragmentByTag("appointmentsFragment") != null) {
-            getSupportFragmentManager().popBackStackImmediate("appointmentsFragment",0);
         } else {
             super.onBackPressed();
         }
@@ -84,9 +78,6 @@ public class DashboardActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-        else if (id == R.id.nav_slideshow) {
-            finish();
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -98,32 +89,21 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-//            for (Fragment fragment:getSupportFragmentManager().getFragments()) {
-//                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-//            }
+            startActivity(new Intent(AppointmentsActivity.this, DashboardActivity.class));
         } else if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
-            startActivity(new Intent(DashboardActivity.this, AppointmentsActivity.class));
-//            mainScreen.removeAllViews();
-//
-//            AppointmentsFragment appointmentsFragment = new AppointmentsFragment();
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.fragments, appointmentsFragment, "appointmentsFragment");
-//            transaction.commit();
-//            transaction.addToBackStack("appointmentsFragment");
-//            setHeader("My Appointments");
-//            displayBackButton();
+
         } else if (id == R.id.nav_manage) {
-            startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
+            startActivity(new Intent(AppointmentsActivity.this, ProfileActivity.class));
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_logout) {
-            startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
+            startActivity(new Intent(AppointmentsActivity.this, LoginActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -131,12 +111,16 @@ public class DashboardActivity extends AppCompatActivity
         return true;
     }
 
-    public void setHeader(String headerText) {
-        getSupportActionBar().setTitle(headerText);
-    }
-
-    public void displayBackButton() {
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+    private Appointments[] appointments = {
+            new Appointments("1", "Dr. Tariq Zahid", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
+                    "13:00 - 13:30", R.drawable.club_04, R.drawable.club_logo_01),
+            new Appointments("1", "Dr. Faisal Shahzad", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
+                    "09:00 - 10:30", R.drawable.club_04, R.drawable.club_logo_01),
+            new Appointments("1", "Dr. Ismail Khan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
+                    "17:00 - 18:00", R.drawable.club_04, R.drawable.club_logo_01),
+            new Appointments("1", "Dr. Farzana Shahrukh", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
+                    "12:00 - 13:30", R.drawable.club_04, R.drawable.club_logo_01),
+            new Appointments("1", "Dr. Kamal Hasan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
+                    "10:00 - 10:30", R.drawable.club_04, R.drawable.club_logo_01),
+    };
 }

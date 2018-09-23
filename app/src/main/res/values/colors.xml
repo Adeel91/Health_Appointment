@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#51e29d</color>
-    <color name="colorPrimaryDark">#34b376</color>
-    <color name="colorAccent">#7edaaf</color>
+    <color name="colorPrimary">#10a35d</color>
+    <color name="colorPrimaryDark">#156e43</color>
+    <color name="colorAccent">#25a66a</color>
 
     <color name="black_overlay">#66000000</color>
     <color name="white">#ffffffff</color>
+
+    <color name="splash_background_alpha">#80000000</color>
 </resources>

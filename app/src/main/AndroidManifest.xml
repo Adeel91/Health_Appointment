@@ -30,8 +30,17 @@
         <activity
             android:name=".DashboardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/app_name"
+            android:label="@string/dashboard_heading"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AppointmentsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/appointments_heading"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
