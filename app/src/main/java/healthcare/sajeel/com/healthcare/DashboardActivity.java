@@ -1,13 +1,9 @@
 package healthcare.sajeel.com.healthcare;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,8 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.Toast;
 
-import healthcare.sajeel.com.healthcare.Fragments.AppointmentsFragment;
+import healthcare.sajeel.com.healthcare.adapter.DashboardAdapter;
+import healthcare.sajeel.com.healthcare.model.Dashboard;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,6 +51,10 @@ public class DashboardActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        GridView dashboardGridView = findViewById(R.id.dashboardGridView);
+        final DashboardAdapter dashboardAdapter = new DashboardAdapter(this, dashboardData);
+        dashboardGridView.setAdapter(dashboardAdapter);
     }
 
     @Override
@@ -98,30 +101,23 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-//            for (Fragment fragment:getSupportFragmentManager().getFragments()) {
-//                getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-//            }
-        } else if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
+        } else if (id == R.id.nav_camera) {
+            Toast.makeText(this, "View all physicians here",
+                    Toast.LENGTH_LONG).show();
+        } else if (id == R.id.nav_gallery) {
+            Toast.makeText(this, "You can see reports in this section",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(DashboardActivity.this, AppointmentsActivity.class));
-//            mainScreen.removeAllViews();
-//
-//            AppointmentsFragment appointmentsFragment = new AppointmentsFragment();
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.fragments, appointmentsFragment, "appointmentsFragment");
-//            transaction.commit();
-//            transaction.addToBackStack("appointmentsFragment");
-//            setHeader("My Appointments");
-//            displayBackButton();
         } else if (id == R.id.nav_manage) {
             startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(this, "You can share the application with your friends and family",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(this, "Invite your friends via email",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_logout) {
             startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
         }
@@ -131,12 +127,14 @@ public class DashboardActivity extends AppCompatActivity
         return true;
     }
 
-    public void setHeader(String headerText) {
-        getSupportActionBar().setTitle(headerText);
-    }
-
-    public void displayBackButton() {
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+    private Dashboard[] dashboardData = {
+            new Dashboard("Dr. Tariq Zahid", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar2),
+            new Dashboard("Dr. Ismail Khan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar3),
+            new Dashboard("Dr. Farzana Shahrukh", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar4),
+            new Dashboard("Dr. Kamal Hasan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar5),
+            new Dashboard("Dr. Farzana Shahrukh", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar6),
+            new Dashboard("Dr. Tariq Zahid", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar7),
+            new Dashboard("Dr. Kamal Hasan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar2),
+            new Dashboard("Dr. Ismail Khan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan", R.drawable.avatar6),
+    };
 }

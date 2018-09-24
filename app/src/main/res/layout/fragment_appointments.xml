@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemmainlayout"
     android:layout_width="match_parent"
     android:layout_height="180dp"
@@ -13,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/club_04" />
+        android:src="@drawable/background1" />
 
     <RelativeLayout
         android:id="@+id/itemdetailslayout"
@@ -24,18 +25,18 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+            android:layout_marginTop="20dp">
 
-            <ImageView
+            <healthcare.sajeel.com.healthcare.model.RoundedImageView
                 android:id="@+id/item_logo"
-                android:layout_width="750dp"
-                android:layout_height="75dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="5dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:src="@drawable/club_logo_01" />
+                android:src="@drawable/avatar6" />
 
-            <TextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
+                app:customFont="fonts/Lato-Bold.ttf"
                 android:id="@+id/item_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +46,8 @@
                 android:textColor="@android:color/white"
                 android:textSize="1dp" />
 
-            <TextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
+                app:customFont="fonts/Lato-Bold.ttf"
                 android:id="@+id/item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +77,8 @@
                 android:layout_margin="5dp"
                 android:src="@drawable/iconlocation" />
 
-            <TextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
+                app:customFont="fonts/Lato-Regular.ttf"
                 android:id="@+id/item_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,7 +97,8 @@
                 android:layout_margin="5dp"
                 android:src="@drawable/iconpickup" />
 
-            <TextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
+                app:customFont="fonts/Lato-Regular.ttf"
                 android:id="@+id/item_timing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

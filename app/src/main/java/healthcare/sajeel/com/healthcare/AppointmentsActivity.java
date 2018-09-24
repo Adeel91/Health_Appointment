@@ -2,11 +2,7 @@ package healthcare.sajeel.com.healthcare;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,15 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import healthcare.sajeel.com.healthcare.Fragments.AppointmentsFragment;
 import healthcare.sajeel.com.healthcare.adapter.AppointmentsAdapter;
 import healthcare.sajeel.com.healthcare.model.Appointments;
 
@@ -33,16 +23,16 @@ public class AppointmentsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarAppointments);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_appointments);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_appointments);
         navigationView.setNavigationItemSelectedListener(this);
 
         GridView gridView = findViewById(R.id.gridView);
@@ -91,36 +81,40 @@ public class AppointmentsActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             startActivity(new Intent(AppointmentsActivity.this, DashboardActivity.class));
         } else if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Toast.makeText(this, "View all physicians here",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_gallery) {
-
+            Toast.makeText(this, "You can see reports in this section",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
             startActivity(new Intent(AppointmentsActivity.this, ProfileActivity.class));
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(this, "You can share the application with your friends and family",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(this, "Invite your friends via email",
+                    Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_logout) {
             startActivity(new Intent(AppointmentsActivity.this, LoginActivity.class));
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_appointments);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     private Appointments[] appointments = {
             new Appointments("1", "Dr. Tariq Zahid", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
-                    "13:00 - 13:30", R.drawable.club_04, R.drawable.club_logo_01),
+                    "13:00 - 13:30", R.drawable.background1, R.drawable.avatar6),
             new Appointments("1", "Dr. Faisal Shahzad", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
-                    "09:00 - 10:30", R.drawable.club_04, R.drawable.club_logo_01),
+                    "09:00 - 10:30", R.drawable.background1, R.drawable.avatar2),
             new Appointments("1", "Dr. Ismail Khan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
-                    "17:00 - 18:00", R.drawable.club_04, R.drawable.club_logo_01),
+                    "17:00 - 18:00", R.drawable.background1, R.drawable.avatar5),
             new Appointments("1", "Dr. Farzana Shahrukh", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
-                    "12:00 - 13:30", R.drawable.club_04, R.drawable.club_logo_01),
+                    "12:00 - 13:30", R.drawable.background1, R.drawable.avatar7),
             new Appointments("1", "Dr. Kamal Hasan", "Gulshan-e-Iqbal Block 13 D Karachi, Pakistan",
-                    "10:00 - 10:30", R.drawable.club_04, R.drawable.club_logo_01),
+                    "10:00 - 10:30", R.drawable.background1, R.drawable.avatar3),
     };
 }

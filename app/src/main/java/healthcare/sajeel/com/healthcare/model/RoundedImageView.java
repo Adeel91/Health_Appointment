@@ -1,4 +1,4 @@
-package healthcare.sajeel.com.healthcare;
+package healthcare.sajeel.com.healthcare.model;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,6 +13,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+
+import healthcare.sajeel.com.healthcare.R;
 
 
 public class RoundedImageView extends android.support.v7.widget.AppCompatImageView {

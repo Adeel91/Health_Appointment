@@ -1,4 +1,4 @@
-package healthcare.sajeel.com.healthcare;
+package healthcare.sajeel.com.healthcare.model;
 
 import android.content.Context;
 import android.graphics.Typeface;

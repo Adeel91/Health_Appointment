@@ -14,6 +14,8 @@ import java.util.List;
 
 import healthcare.sajeel.com.healthcare.R;
 import healthcare.sajeel.com.healthcare.model.Appointments;
+import healthcare.sajeel.com.healthcare.model.CustomTextView;
+import healthcare.sajeel.com.healthcare.model.RoundedImageView;
 
 public class AppointmentsAdapter extends BaseAdapter {
     private final Context mContext;
@@ -73,12 +75,12 @@ public class AppointmentsAdapter extends BaseAdapter {
             final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
             convertView = layoutInflater.inflate(R.layout.fragment_appointments, null);
 
-            final TextView itemId = (TextView)convertView.findViewById(R.id.item_id);
-            final TextView itemTitle = (TextView)convertView.findViewById(R.id.item_title);
-            final TextView itemAddress = (TextView)convertView.findViewById(R.id.item_address);
-            final TextView itemTiming = (TextView)convertView.findViewById(R.id.item_timing);
+            final CustomTextView itemId = (CustomTextView)convertView.findViewById(R.id.item_id);
+            final CustomTextView itemTitle = (CustomTextView)convertView.findViewById(R.id.item_title);
+            final CustomTextView itemAddress = (CustomTextView)convertView.findViewById(R.id.item_address);
+            final CustomTextView itemTiming = (CustomTextView)convertView.findViewById(R.id.item_timing);
             final ImageView itemPicture = (ImageView)convertView.findViewById(R.id.item_picture);
-            final ImageView itemLogo = (ImageView)convertView.findViewById(R.id.item_logo);
+            final RoundedImageView itemLogo = (RoundedImageView)convertView.findViewById(R.id.item_logo);
 
             final ViewHolder viewHolder = new ViewHolder(itemId, itemTitle, itemAddress, itemTiming, itemPicture, itemLogo);
             convertView.setTag(viewHolder);
@@ -97,12 +99,12 @@ public class AppointmentsAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        private final TextView itemId;
-        private final TextView itemTitle;
-        private final TextView itemAddress;
-        private final TextView itemTiming;
+        private final CustomTextView itemId;
+        private final CustomTextView itemTitle;
+        private final CustomTextView itemAddress;
+        private final CustomTextView itemTiming;
         private final ImageView itemPicture;
-        private final ImageView itemLogo;
+        private final RoundedImageView itemLogo;
 
         /**
          * @param itemId int
@@ -112,7 +114,7 @@ public class AppointmentsAdapter extends BaseAdapter {
          * @param itemPicture
          * @param itemLogo
          */
-        public ViewHolder(TextView itemId, TextView itemTitle, TextView itemAddress, TextView itemTiming, ImageView itemPicture, ImageView itemLogo) {
+        public ViewHolder(CustomTextView itemId, CustomTextView itemTitle, CustomTextView itemAddress, CustomTextView itemTiming, ImageView itemPicture, RoundedImageView itemLogo) {
             this.itemId = itemId;
             this.itemTitle = itemTitle;
             this.itemAddress = itemAddress;

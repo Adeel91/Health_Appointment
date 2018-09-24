@@ -15,16 +15,16 @@
             android:background="@color/colorPrimaryDark"
             android:id="@+id/topper" />
 
-        <healthcare.sajeel.com.healthcare.RoundedImageView
+        <healthcare.sajeel.com.healthcare.model.RoundedImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:padding="10dp"
             android:id="@+id/dpimage"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/sajeel" />
+            android:src="@drawable/avatar6" />
 
-        <healthcare.sajeel.com.healthcare.CustomTextView
+        <healthcare.sajeel.com.healthcare.model.CustomTextView
             app:customFont="fonts/Lato-Bold.ttf"
             android:padding="10dp"
             android:layout_marginLeft="50dp"
@@ -38,7 +38,7 @@
             android:textSize="14dp"
             android:text="Profile Picture" />
 
-        <healthcare.sajeel.com.healthcare.CustomTextView
+        <healthcare.sajeel.com.healthcare.model.CustomTextView
             app:customFont="fonts/Lato-Regular.ttf"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
@@ -51,7 +51,7 @@
             android:layout_below="@+id/dptext"
             android:text="First Name" />
 
-        <healthcare.sajeel.com.healthcare.CustomEditText
+        <healthcare.sajeel.com.healthcare.model.CustomEditText
             android:inputType="text"
             android:imeOptions="actionNext"
             android:maxLines="1"
@@ -76,7 +76,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/input_textfield" />
 
-        <healthcare.sajeel.com.healthcare.CustomTextView
+        <healthcare.sajeel.com.healthcare.model.CustomTextView
             app:customFont="fonts/Lato-Regular.ttf"
             android:layout_below="@+id/fnameedit"
             android:layout_marginTop="15dp"
@@ -89,7 +89,7 @@
             android:textSize="14dp"
             android:text="Last Name" />
 
-        <healthcare.sajeel.com.healthcare.CustomEditText
+        <healthcare.sajeel.com.healthcare.model.CustomEditText
             android:inputType="text"
             android:imeOptions="actionNext"
             android:maxLines="1"
@@ -114,7 +114,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/input_textfield" />
 
-        <healthcare.sajeel.com.healthcare.CustomTextView
+        <healthcare.sajeel.com.healthcare.model.CustomTextView
             app:customFont="fonts/Lato-Regular.ttf"
             android:layout_below="@+id/lnameedit"
             android:layout_marginTop="15dp"
@@ -127,7 +127,7 @@
             android:textSize="14dp"
             android:text="Email" />
 
-        <healthcare.sajeel.com.healthcare.CustomEditText
+        <healthcare.sajeel.com.healthcare.model.CustomEditText
             android:inputType="textEmailAddress"
             android:imeOptions="actionNext"
             android:maxLines="1"
@@ -152,7 +152,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/input_textfield" />
 
-        <healthcare.sajeel.com.healthcare.CustomTextView
+        <healthcare.sajeel.com.healthcare.model.CustomTextView
             app:customFont="fonts/Lato-Regular.ttf"
             android:layout_below="@+id/emailedit"
             android:layout_marginTop="15dp"
@@ -165,7 +165,7 @@
             android:textSize="14dp"
             android:text="Password" />
 
-        <healthcare.sajeel.com.healthcare.CustomEditText
+        <healthcare.sajeel.com.healthcare.model.CustomEditText
             android:inputType="textPassword"
             android:imeOptions="actionNext"
             android:maxLines="1"
@@ -191,7 +191,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/input_textfield" />
 
-        <healthcare.sajeel.com.healthcare.CustomTextView
+        <healthcare.sajeel.com.healthcare.model.CustomTextView
             app:customFont="fonts/Lato-Regular.ttf"
             android:layout_below="@+id/passwordedit"
             android:layout_marginTop="15dp"
@@ -204,7 +204,7 @@
             android:textSize="14dp"
             android:text="Confirm Password" />
 
-        <healthcare.sajeel.com.healthcare.CustomEditText
+        <healthcare.sajeel.com.healthcare.model.CustomEditText
             android:inputType="textPassword"
             android:imeOptions="actionDone"
             android:maxLines="1"
@@ -242,7 +242,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
 
-            <healthcare.sajeel.com.healthcare.CustomTextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
                 app:customFont="fonts/Lato-Regular.ttf"
                 android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
@@ -251,7 +251,7 @@
                 android:textSize="14dp"
                 android:text="Street" />
 
-            <healthcare.sajeel.com.healthcare.CustomEditText
+            <healthcare.sajeel.com.healthcare.model.CustomEditText
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:maxLines="1"
@@ -272,7 +272,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/input_textfield" />
 
-            <healthcare.sajeel.com.healthcare.CustomTextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
                 app:customFont="fonts/Lato-Regular.ttf"
                 android:layout_below="@+id/streetedit"
                 android:layout_marginTop="15dp"
@@ -283,7 +283,7 @@
                 android:textSize="14dp"
                 android:text="Zip" />
 
-            <healthcare.sajeel.com.healthcare.CustomEditText
+            <healthcare.sajeel.com.healthcare.model.CustomEditText
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:maxLines="1"
@@ -304,7 +304,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/input_textfield" />
 
-            <healthcare.sajeel.com.healthcare.CustomTextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
                 app:customFont="fonts/Lato-Regular.ttf"
                 android:layout_below="@+id/postaledit"
                 android:layout_marginTop="15dp"
@@ -315,7 +315,7 @@
                 android:textSize="14dp"
                 android:text="City" />
 
-            <healthcare.sajeel.com.healthcare.CustomEditText
+            <healthcare.sajeel.com.healthcare.model.CustomEditText
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:maxLines="1"
@@ -336,7 +336,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/input_textfield" />
 
-            <healthcare.sajeel.com.healthcare.CustomTextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
                 app:customFont="fonts/Lato-Regular.ttf"
                 android:layout_marginTop="15dp"
                 android:textColor="@color/colorPrimary"
@@ -347,7 +347,7 @@
                 android:textSize="14dp"
                 android:text="Province" />
 
-            <healthcare.sajeel.com.healthcare.CustomEditText
+            <healthcare.sajeel.com.healthcare.model.CustomEditText
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:maxLines="1"
@@ -368,7 +368,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/input_textfield" />
 
-            <healthcare.sajeel.com.healthcare.CustomTextView
+            <healthcare.sajeel.com.healthcare.model.CustomTextView
                 app:customFont="fonts/Lato-Regular.ttf"
                 android:layout_below="@+id/regionedit"
                 android:layout_marginTop="15dp"
@@ -379,7 +379,7 @@
                 android:textSize="14dp"
                 android:text="Country" />
 
-            <healthcare.sajeel.com.healthcare.CustomEditText
+            <healthcare.sajeel.com.healthcare.model.CustomEditText
                 android:inputType="text"
                 android:imeOptions="actionDone"
                 android:maxLines="1"
