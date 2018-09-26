@@ -106,8 +106,7 @@ public class DashboardActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
 
         } else if (id == R.id.nav_camera) {
-            Toast.makeText(this, "View all physicians here",
-                    Toast.LENGTH_LONG).show();
+            startActivity(new Intent(DashboardActivity.this, BookingActivity.class));
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "You can see reports in this section",
                     Toast.LENGTH_LONG).show();
@@ -134,8 +133,7 @@ public class DashboardActivity extends AppCompatActivity
         item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DashboardActivity.this, "Invite your friends via email",
-                        Toast.LENGTH_LONG).show();
+                startActivity(new Intent(DashboardActivity.this, BookingActivity.class));
             }
         });
     }

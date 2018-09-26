@@ -42,7 +42,7 @@ public class AppointmentsActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_appointments);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -81,8 +81,7 @@ public class AppointmentsActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             startActivity(new Intent(AppointmentsActivity.this, DashboardActivity.class));
         } else if (id == R.id.nav_camera) {
-            Toast.makeText(this, "View all physicians here",
-                    Toast.LENGTH_LONG).show();
+            startActivity(new Intent(AppointmentsActivity.this, BookingActivity.class));
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "You can see reports in this section",
                     Toast.LENGTH_LONG).show();

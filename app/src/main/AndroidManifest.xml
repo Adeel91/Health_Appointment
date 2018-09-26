@@ -38,6 +38,11 @@
             android:label="@string/appointments_heading"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".BookingActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/booking_heading"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar"></activity>
