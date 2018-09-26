@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -55,6 +56,8 @@ public class DashboardActivity extends AppCompatActivity
         GridView dashboardGridView = findViewById(R.id.dashboardGridView);
         final DashboardAdapter dashboardAdapter = new DashboardAdapter(this, dashboardData);
         dashboardGridView.setAdapter(dashboardAdapter);
+
+        dashboardGridViewEventHandler(dashboardGridView);
     }
 
     @Override
@@ -125,6 +128,16 @@ public class DashboardActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void dashboardGridViewEventHandler(GridView item) {
+        item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(DashboardActivity.this, "Invite your friends via email",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private Dashboard[] dashboardData = {
