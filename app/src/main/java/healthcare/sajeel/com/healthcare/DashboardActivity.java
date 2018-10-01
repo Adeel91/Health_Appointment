@@ -18,13 +18,18 @@ import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import healthcare.sajeel.com.healthcare.adapter.DashboardAdapter;
+import healthcare.sajeel.com.healthcare.model.CustomTextView;
 import healthcare.sajeel.com.healthcare.model.Dashboard;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FrameLayout mainScreen;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,14 @@ public class DashboardActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            View headerView = navigationView.getHeaderView(0);
+            CustomTextView email = (CustomTextView) headerView.findViewById(R.id.userEmail);
+            email.setText(currentUser.getEmail());
+        }
 
         GridView dashboardGridView = findViewById(R.id.dashboardGridView);
         final DashboardAdapter dashboardAdapter = new DashboardAdapter(this, dashboardData);
@@ -90,9 +103,6 @@ public class DashboardActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-        else if (id == R.id.nav_slideshow) {
-            finish();
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -121,7 +131,9 @@ public class DashboardActivity extends AppCompatActivity
             Toast.makeText(this, "Invite your friends via email",
                     Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_logout) {
-            startActivity(new Intent(DashboardActivity.this, LoginActivity.class));
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(DashboardActivity.this, SigninActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

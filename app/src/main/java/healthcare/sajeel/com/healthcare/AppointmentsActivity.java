@@ -10,14 +10,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import healthcare.sajeel.com.healthcare.adapter.AppointmentsAdapter;
 import healthcare.sajeel.com.healthcare.model.Appointments;
+import healthcare.sajeel.com.healthcare.model.CustomTextView;
 
 public class AppointmentsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,14 @@ public class AppointmentsActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_appointments);
         navigationView.setNavigationItemSelectedListener(this);
+
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null) {
+            View headerView = navigationView.getHeaderView(0);
+            CustomTextView email = (CustomTextView) headerView.findViewById(R.id.userEmail);
+            email.setText(currentUser.getEmail());
+        }
 
         GridView gridView = findViewById(R.id.gridView);
         final AppointmentsAdapter appointmentsAdapter = new AppointmentsAdapter(this, appointments);
@@ -96,7 +111,9 @@ public class AppointmentsActivity extends AppCompatActivity
             Toast.makeText(this, "Invite your friends via email",
                     Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_logout) {
-            startActivity(new Intent(AppointmentsActivity.this, LoginActivity.class));
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(AppointmentsActivity.this, SigninActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_appointments);
